@@ -1,7 +1,8 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
+import app.repositories.brandRepo as brandRepo
 
-app = FastAPI()
+router = APIRouter()
 
-@app.get("/getBrands")
+@router.get("/getBrands")
 async def getBrands():
-    return
+    return brandRepo.get_brands()
