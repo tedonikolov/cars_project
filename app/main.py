@@ -4,6 +4,7 @@ from app.controllers import modelController
 from app.controllers import typeController
 from app.controllers import carController
 from app.controllers import clientController
+from app.controllers import rentController
 
 
 tags_metadata = [
@@ -42,3 +43,4 @@ app.include_router(modelController.router)
 app.include_router(typeController.router)
 app.include_router(carController.router)
 app.include_router(clientController.router)
+app.include_router(rentController.router)
