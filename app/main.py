@@ -1,10 +1,16 @@
 from fastapi import FastAPI
 from app.controllers import brandController
+from app.controllers import modelController
+
 
 tags_metadata = [
     {
         "name": "brand",
         "description": "Operations with brands.",
+    },
+    {
+        "name": "model",
+        "description": "Operations with models.",
     },
 ]
 
@@ -18,3 +24,4 @@ app = FastAPI(
 )
 
 app.include_router(brandController.router)
+app.include_router(modelController.router)
