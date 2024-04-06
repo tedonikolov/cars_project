@@ -1,5 +1,5 @@
 services:
-  postgres:
+  cars_db:
     image: postgres:latest
     container_name: cars_serviceDB
     environment:
@@ -8,3 +8,14 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
     ports:
       - 5555:5432
+
+  cars_service:
+    image: cars_service:latest
+    container_name: cars_service
+    build:
+        context: .
+        dockerfile: Dockerfile
+    ports:
+        - 8000:8000
+    depends_on:
+      - cars_db
