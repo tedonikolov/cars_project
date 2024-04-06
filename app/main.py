@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from app.controllers import brandController
 from app.controllers import modelController
+from app.controllers import rentController
+from app.controllers import clientController
 
 
 tags_metadata = [
@@ -11,6 +13,13 @@ tags_metadata = [
     {
         "name": "model",
         "description": "Operations with models.",
+    },    {
+        "name": "client",
+        "description": "Operations with clients.",
+    },
+    {
+        "name": "rent",
+        "description": "Operations with rents.",
     },
 ]
 
@@ -25,3 +34,4 @@ app = FastAPI(
 
 app.include_router(brandController.router)
 app.include_router(modelController.router)
+app.include_router(clientController.router)
